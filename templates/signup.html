@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Account – HumAInity</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <h1 class="brand">HumAInity</h1>
+
+    <div class="glass-card">
+
+      <h2 class="card-title">Create Account</h2>
+      <p class="card-subtitle">Join the HumAInity Network</p>
+
+      <form action="/signup" method="POST">
+
+        <div class="input-box">
+          <input name="username" type="text" placeholder=" " required>
+          <label>Username</label>
+        </div>
+
+        <div class="input-box">
+          <input name="email" type="email" placeholder=" " required>
+          <label>Email</label>
+        </div>
+
+        <div class="input-box">
+          <input name="password" type="password" placeholder=" " required>
+          <label>Password</label>
+        </div>
+
+        <button class="btn" type="submit">Create Account</button>
+
+      </form>
+
+      <div class="extra-links">
+        <a href="/">Already have an account? Login</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

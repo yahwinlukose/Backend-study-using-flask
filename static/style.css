@@ -1,0 +1,188 @@
+/* 1. Global Reset, Variables, and Clean Font */
+:root {
+    /* New Light Theme Palette */
+    --color-background-start: #f0f0f5; /* Very light gray */
+    --color-background-end: #e5e5eb; /* Slightly darker light gray */
+    --color-accent: #00a86b; /* Emerald Green for focus/button */
+    --color-text-dark: #333333;
+    --color-card-light: rgba(255, 255, 255, 0.85); /* Highly transparent white */
+    --color-border-light: rgba(0, 0, 0, 0.1);
+    --color-shadow-subtle: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* AFTER (Allows the layout to be the height of its content) */
+/* In style.css */
+
+/* Body fix: perfect centering + no weird scroll issues */
+body {
+    min-height: 100dvh;       /* modern dynamic viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;   /* so brand sits above card neatly */
+    padding: 0;
+    margin: 0;
+
+    background: linear-gradient(135deg, var(--color-background-start) 0%, var(--color-background-end) 100%);
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-text-dark);
+}
+
+/* Wrap fix: perfect spacing, never stretches too much, centers everything */
+.wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;                /* equal space between brand + card */
+    width: 100%;
+    max-width: 420px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+
+.brand {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: var(--color-text-dark);
+    text-shadow: 0 2px 5px var(--color-shadow-subtle);
+}
+
+/* 3. The Clean Glass Card */
+.glass-card {
+    /* Glass Effect */
+    background: var(--color-card-light); 
+    backdrop-filter: blur(15px); /* Strong blur for clear separation */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--color-border-light); 
+    border-radius: 18px;
+    box-shadow: 0 10px 30px var(--color-shadow-subtle); 
+
+    padding: 40px;
+    width: 380px;
+    max-width: 90vw;
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-3px); /* Subtle lift on hover */
+    box-shadow: 0 15px 40px var(--color-shadow-subtle);
+}
+
+/* 4. Card Header and Logo */
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff; /* White text for contrast on accent background */
+    background-color: var(--color-accent);
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    box-shadow: 0 4px 10px rgba(0, 168, 107, 0.4);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 3px;
+    color: var(--color-text-dark);
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 5. Input Field (Clean Floating Label) */
+.input-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--color-border-light);
+    outline: none;
+    color: var(--color-text-dark);
+    font-size: 1rem;
+    transition: border-bottom-color 0.3s;
+}
+
+.input-box input:focus {
+    border-bottom-color: var(--color-accent); /* Accent color on focus */
+}
+
+.input-box label {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    color: #999;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+/* Floating Label Logic */
+.input-box input:focus ~ label,
+.input-box input:not(:placeholder-shown) ~ label {
+    top: -15px;
+    font-size: 0.75rem;
+    color: var(--color-accent);
+}
+
+/* 6. Button Styling */
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    
+    background-color: var(--color-accent);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.extra-links {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.extra-links a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 5px;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+.extra-links span {
+    color: #777;
+}

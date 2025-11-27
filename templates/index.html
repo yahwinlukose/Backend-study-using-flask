@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HumAInity Login</title>
+
+  <!-- Correct Flask static linking -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <!-- Brand -->
+    <h1 class="brand">HumAInity</h1>
+
+    <!-- Login Card -->
+    <div class="glass-card">
+
+      <!-- Header Section -->
+      <header class="card-header">
+        <div class="logo" aria-hidden="true">H</div>
+
+        <div class="title-wrapper">
+          <h2 class="card-title">Access Terminal</h2>
+          <p class="card-subtitle">
+            Sign in to continue to <strong>HumAInity</strong>
+          </p>
+        </div>
+      </header>
+
+      <!-- Form Section -->
+      <form action="/login" method="POST">
+
+  <div class="input-box">
+    <input id="user" name="username" type="text" placeholder=" " autocomplete="username" required />
+    <label for="user">Username / ID</label>
+  </div>
+
+  <div class="input-box">
+    <input id="pass" name="password" type="password" placeholder=" " autocomplete="current-password" required />
+    <label for="pass">Password / Key</label>
+  </div>
+
+  <button type="submit" class="btn">Login & Activate</button>
+  <div class="extra-links">
+    <a href="/forgot">Forgot Password?</a>
+    <span>•</span>
+    <a href="/signup">Create Account</a>
+  </div>
+
+
+</form>
+
+
+    </div><!-- glass-card end -->
+
+  </div><!-- wrap end -->
+
+</body>
+</html>
